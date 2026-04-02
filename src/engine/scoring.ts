@@ -55,6 +55,14 @@ const DELIVERY_FIT_SCORES: Record<string, number> = {
   hybrid: 85,
 }
 
+const AUDIENCE_RANGE_SCORES: Record<string, number> = {
+  none: 10,
+  micro: 35,
+  small: 55,
+  medium: 75,
+  large: 90,
+}
+
 // Weights — must sum to 1.0
 const WEIGHTS = {
   expertise_strength: 0.20,

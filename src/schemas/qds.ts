@@ -70,6 +70,34 @@ export const QDSSubmissionSchema = z.object({
     audience_size: z.number().optional(),
     prior_teaching_experience: z.boolean().optional(),
     monetization_goal: z.string().max(500).optional(),
+
+    // Creator stage + business goals (Step 7)
+    creator_stage: z.enum([
+      'first_time',
+      'established',
+      'scaling',
+      'migrating',
+    ]).optional(),
+
+    business_goal: z.enum([
+      'first_revenue',
+      'grow_revenue',
+      'migrate_library',
+      'build_audience',
+    ]).optional(),
+
+    // Platform priorities (Step 8)
+    platform_priorities: z.array(z.string()).optional(),
+
+    // Audience enrichment
+    audience_range: z.enum([
+      'none', 'micro', 'small', 'medium', 'large'
+    ]).optional(),
+
+    audience_type: z.union([
+      z.enum(['cold', 'social', 'email', 'community', 'clients', 'subscribers']),
+      z.array(z.enum(['cold', 'social', 'email', 'community', 'clients', 'subscribers'])),
+    ]).optional(),
   }),
 })
 

@@ -108,6 +108,12 @@ export function generateNotes(
   if (dimensions.demand_evidence < 55) notes.push('Demand evidence is weak — validate before building.')
   if (payload.audience_size && payload.audience_size > 1000) notes.push('Audience size is strong for launch.')
   if (payload.prior_teaching_experience) notes.push('Prior teaching experience improves delivery readiness.')
+  const audienceTypes = Array.isArray(payload.audience_type)
+    ? payload.audience_type
+    : [payload.audience_type].filter(Boolean)
+  if (audienceTypes.includes('clients')) notes.push('Existing client base is your highest-converting launch audience — offer them first access.')
+  if (audienceTypes.includes('subscribers')) notes.push('Paid subscribers signal strong willingness to pay — price your program accordingly.')
+  if ((audienceTypes.includes('cold') || audienceTypes.length === 0) || payload.audience_range === 'none') notes.push('No existing audience — JIT validation model recommended before full production.')
 
-  return notes.slice(0, 4) // Max 4 notes
+  return notes.slice(0, 5) // Max 5 notes
 }
