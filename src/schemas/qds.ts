@@ -98,6 +98,16 @@ export const QDSSubmissionSchema = z.object({
       z.enum(['cold', 'social', 'email', 'community', 'clients', 'subscribers']),
       z.array(z.enum(['cold', 'social', 'email', 'community', 'clients', 'subscribers'])),
     ]).optional(),
+
+    revenue_history: z.enum([
+      'none', 'services', 'group', 'content', 'multiple'
+    ]).optional(),
+
+    launch_timeline: z.enum([
+      'asap', 'one_to_three', 'three_to_six', 'no_timeline'
+    ]).optional(),
+
+    why_this_matters: z.string().max(1000).optional(),
   }),
 })
 

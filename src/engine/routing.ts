@@ -114,6 +114,9 @@ export function generateNotes(
   if (audienceTypes.includes('clients')) notes.push('Existing client base is your highest-converting launch audience — offer them first access.')
   if (audienceTypes.includes('subscribers')) notes.push('Paid subscribers signal strong willingness to pay — price your program accordingly.')
   if ((audienceTypes.includes('cold') || audienceTypes.length === 0) || payload.audience_range === 'none') notes.push('No existing audience — JIT validation model recommended before full production.')
+  if (payload.revenue_history === 'services') notes.push('Existing service clients are your highest-converting first cohort — offer them access first.')
+  if (payload.revenue_history === 'none') notes.push('First-time monetiser — JIT validation model recommended before full production investment.')
+  if (payload.launch_timeline === 'asap') notes.push('30-day timeline — prioritise content readiness and audience activation immediately.')
 
   return notes.slice(0, 5) // Max 5 notes
 }
