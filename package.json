@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/DIO2026/docente-qds#readme",
   "dependencies": {
+    "@stardance/qds-kernel": "file:../../home/claude/stardance-qds/packages/qds-kernel",
+    "@stardance/qds-spec": "file:../../home/claude/stardance-qds/packages/qds-spec",
     "axios": "^1.14.0",
     "cors": "^2.8.6",
     "dotenv": "^17.3.1",

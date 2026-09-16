@@ -1,0 +1,19 @@
+{
+  "tool": "m1-service-equivalence",
+  "a_side": "src/routes/qds.legacy.ts (verbatim HEAD copy, do_qds_v1.5 engine)",
+  "b_side": "src/routes/qds.ts (@stardance/qds-kernel)",
+  "compared_scope": "entire JSON response body except processed_at and meta.qds_platform",
+  "pass_1_scored_vectors": 7680,
+  "pass_2_context_vectors": 60480,
+  "context_combinations": 10080,
+  "total_requests_compared": 68160,
+  "mismatches": 0,
+  "band_distribution_pass_1": {
+    "BUILD_NOW": 10348,
+    "ITERATE": 34437,
+    "NEEDS_CLARITY": 13147,
+    "NOT_READY": 10228
+  },
+  "sample_mismatches": [],
+  "PASS": true
+}

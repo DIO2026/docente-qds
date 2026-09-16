@@ -1,0 +1,21 @@
+{
+  "criterion": "one spec file + under 50 lines of glue (P1-T-13)",
+  "spec_files": 1,
+  "spec_file": "specs/creator-viability.sd_qds_v2.json",
+  "glue_lines": {
+    "adapter_glue_section": 25,
+    "route_changes": 8,
+    "total": 33
+  },
+  "under_50": true,
+  "product_local_lines": {
+    "adapter_product_local_section": 24,
+    "note": "legacy dimension key names + payload-context notes the spec does not score (QDS-FIND-006). Not adoption cost; retained legacy behaviour."
+  },
+  "provenance_block_lines": 9,
+  "legacy_engine_lines_replaced": {
+    "scoring_ts": 83,
+    "routing_ts_superseded": "assignRoutingDecision, assignConfidenceBand, generateNextStep, generateNotes (dimension half)",
+    "route_lines_removed": 14
+  }
+}

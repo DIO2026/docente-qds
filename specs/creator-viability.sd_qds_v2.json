@@ -1,0 +1,394 @@
+{
+  "qds_version": "sd_qds_v2",
+  "qds_id": "creator-viability",
+  "spec_revision": "1.0.0",
+  "title": "Creator Viability",
+  "subject": "A creator evaluating whether to build and launch a learning product",
+  "objective": "Determine whether this creator should build now, iterate first, get clearer, or wait",
+  "scoring": {
+    "paradigm": "dimension_quality",
+    "maps_ref": "creator-v1",
+    "weights": {
+      "expertise_strength": 0.2,
+      "audience_clarity": 0.2,
+      "outcome_strength": 0.2,
+      "demand_evidence": 0.2,
+      "content_readiness": 0.1,
+      "delivery_fit": 0.1
+    }
+  },
+  "questions": [
+    {
+      "question_id": "q_expertise",
+      "dimension": "expertise_strength",
+      "map_name": "expertise_strength",
+      "prompt": "How would you describe your expertise in this area?",
+      "options": [
+        {
+          "answer_id": "a1",
+          "label": "Highly specific and demonstrable",
+          "map_key": "highly_specific"
+        },
+        {
+          "answer_id": "a2",
+          "label": "Clear and validated by results",
+          "map_key": "clear_validated"
+        },
+        {
+          "answer_id": "a3",
+          "label": "Broad and general",
+          "map_key": "broad_general"
+        },
+        {
+          "answer_id": "a4",
+          "label": "Still forming",
+          "map_key": "vague_weak"
+        }
+      ]
+    },
+    {
+      "question_id": "q_audience",
+      "dimension": "audience_clarity",
+      "map_name": "audience_clarity",
+      "prompt": "How clearly defined is the learner you are building for?",
+      "options": [
+        {
+          "answer_id": "a1",
+          "label": "Narrow and specific",
+          "map_key": "narrow_specific"
+        },
+        {
+          "answer_id": "a2",
+          "label": "Clear, moderately broad",
+          "map_key": "clear_moderate"
+        },
+        {
+          "answer_id": "a3",
+          "label": "Broad or ambiguous",
+          "map_key": "broad_ambiguous"
+        },
+        {
+          "answer_id": "a4",
+          "label": "Not yet defined",
+          "map_key": "vague_undefined"
+        }
+      ]
+    },
+    {
+      "question_id": "q_outcome",
+      "dimension": "outcome_strength",
+      "map_name": "outcome_strength",
+      "prompt": "What changes for the learner by the end?",
+      "options": [
+        {
+          "answer_id": "a1",
+          "label": "A concrete transformation",
+          "map_key": "concrete_transformation"
+        },
+        {
+          "answer_id": "a2",
+          "label": "A meaningful outcome",
+          "map_key": "meaningful_outcome"
+        },
+        {
+          "answer_id": "a3",
+          "label": "A general benefit",
+          "map_key": "generic_benefit"
+        },
+        {
+          "answer_id": "a4",
+          "label": "Still unclear",
+          "map_key": "unclear_value"
+        }
+      ]
+    },
+    {
+      "question_id": "q_demand",
+      "dimension": "demand_evidence",
+      "map_name": "demand_evidence",
+      "prompt": "What proof of demand do you have?",
+      "options": [
+        {
+          "answer_id": "a1",
+          "label": "Buyers, a waitlist, or repeated asks",
+          "map_key": "strong_proof"
+        },
+        {
+          "answer_id": "a2",
+          "label": "Engagement and audience interest",
+          "map_key": "moderate_evidence"
+        },
+        {
+          "answer_id": "a3",
+          "label": "Anecdotal signals",
+          "map_key": "anecdotal_weak"
+        },
+        {
+          "answer_id": "a4",
+          "label": "Nothing yet",
+          "map_key": "no_proof"
+        }
+      ]
+    },
+    {
+      "question_id": "q_readiness",
+      "dimension": "content_readiness",
+      "map_name": "content_readiness",
+      "prompt": "How much of the material already exists?",
+      "options": [
+        {
+          "answer_id": "a1",
+          "label": "Launch ready",
+          "map_key": "launch_ready"
+        },
+        {
+          "answer_id": "a2",
+          "label": "Substantial materials",
+          "map_key": "substantial_materials"
+        },
+        {
+          "answer_id": "a3",
+          "label": "Partial materials",
+          "map_key": "partial_materials"
+        },
+        {
+          "answer_id": "a4",
+          "label": "An outline only",
+          "map_key": "outline_only"
+        },
+        {
+          "answer_id": "a5",
+          "label": "Nothing yet",
+          "map_key": "none"
+        }
+      ]
+    },
+    {
+      "question_id": "q_delivery",
+      "dimension": "delivery_fit",
+      "map_name": "delivery_fit",
+      "prompt": "How do you want to deliver it?",
+      "options": [
+        {
+          "answer_id": "a1",
+          "label": "Cohort programme",
+          "map_key": "cohort_program"
+        },
+        {
+          "answer_id": "a2",
+          "label": "Self-paced course",
+          "map_key": "self_paced_course"
+        },
+        {
+          "answer_id": "a3",
+          "label": "Workshop",
+          "map_key": "workshop"
+        },
+        {
+          "answer_id": "a4",
+          "label": "Community",
+          "map_key": "community"
+        },
+        {
+          "answer_id": "a5",
+          "label": "Coaching",
+          "map_key": "coaching"
+        },
+        {
+          "answer_id": "a6",
+          "label": "Hybrid",
+          "map_key": "hybrid"
+        }
+      ]
+    }
+  ],
+  "bands": {
+    "thresholds": [
+      80,
+      60,
+      40
+    ]
+  },
+  "vocabulary": {
+    "ACCELERATE": "Build Now",
+    "REFINE": "Iterate",
+    "CULTIVATE": "Needs Clarity",
+    "ARCHIVE": "Not Ready"
+  },
+  "advice": {
+    "ACCELERATE": {
+      "expertise_strength": "Begin packaging your expertise into a structured curriculum now.",
+      "audience_clarity": "Start building — refine your audience as you go.",
+      "outcome_strength": "Launch immediately and sharpen the outcome promise post-launch.",
+      "demand_evidence": "Launch now — validate pricing with first cohort.",
+      "content_readiness": "Build the content structure and launch within 30 days.",
+      "delivery_fit": "You are ready to build. Start with your preferred format."
+    },
+    "REFINE": {
+      "expertise_strength": "Deepen your expertise positioning before building.",
+      "audience_clarity": "Narrow your target learner — specificity drives conversion.",
+      "outcome_strength": "Sharpen the transformation promise — what exactly changes for the learner?",
+      "demand_evidence": "Validate demand with 5-10 target learners before building.",
+      "content_readiness": "Develop more content before committing to a launch date.",
+      "delivery_fit": "Test your format preference with a small pilot before full build."
+    },
+    "CULTIVATE": {
+      "expertise_strength": "Clarify your core expertise and what makes it credible and unique.",
+      "audience_clarity": "Define exactly who this is for — get specific on the learner profile.",
+      "outcome_strength": "Define the exact before and after result for your learner.",
+      "demand_evidence": "Gather proof of demand — speak to 10 potential learners this week.",
+      "content_readiness": "Start with an outline before building full content.",
+      "delivery_fit": "Clarify your offer structure before deciding on delivery format."
+    },
+    "ARCHIVE": {
+      "expertise_strength": "Strengthen your expertise positioning — document your results and track record.",
+      "audience_clarity": "Research your target audience before building anything.",
+      "outcome_strength": "Identify a clear transformation you can reliably deliver.",
+      "demand_evidence": "Find proof of demand before investing in production.",
+      "content_readiness": "Start documenting your knowledge before building a course.",
+      "delivery_fit": "Clarify your offer fundamentals before choosing a delivery format."
+    }
+  },
+  "notes_rules": [
+    {
+      "dimension": "expertise_strength",
+      "op": "gte",
+      "value": 75,
+      "note": "Strong expertise signal detected."
+    },
+    {
+      "dimension": "expertise_strength",
+      "op": "lt",
+      "value": 55,
+      "note": "Expertise signal needs strengthening."
+    },
+    {
+      "dimension": "audience_clarity",
+      "op": "gte",
+      "value": 75,
+      "note": "Audience definition is clear and specific."
+    },
+    {
+      "dimension": "audience_clarity",
+      "op": "lt",
+      "value": 55,
+      "note": "Audience definition is too broad — narrow your learner profile."
+    },
+    {
+      "dimension": "outcome_strength",
+      "op": "gte",
+      "value": 75,
+      "note": "Transformation outcome is compelling."
+    },
+    {
+      "dimension": "outcome_strength",
+      "op": "lt",
+      "value": 55,
+      "note": "Outcome promise is weak — sharpen the before/after."
+    },
+    {
+      "dimension": "demand_evidence",
+      "op": "gte",
+      "value": 75,
+      "note": "Strong demand evidence — you have proof."
+    },
+    {
+      "dimension": "demand_evidence",
+      "op": "lt",
+      "value": 55,
+      "note": "Demand evidence is weak — validate before building."
+    }
+  ],
+  "disclosure": {
+    "publish_band_label": true,
+    "publish_score": false,
+    "recourse": "If this does not match your situation, ask for a human review and a person will look at it with you.",
+    "human_review_notice": "A person reviews this before anything happens."
+  },
+  "governance": {
+    "governance_class": "lite_experimental",
+    "human_review": "on_band",
+    "human_review_bands": [
+      "ACCELERATE",
+      "ARCHIVE"
+    ]
+  },
+  "modes": [
+    "one_shot",
+    "turn_based"
+  ],
+  "presentation": {
+    "densities": [
+      "badge",
+      "inline",
+      "full"
+    ],
+    "intake_modes": [
+      "all_at_once",
+      "sequential",
+      "interleaved"
+    ],
+    "question_groups": [
+      {
+        "group_id": "g_foundation",
+        "label": "Your expertise and audience",
+        "question_ids": [
+          "q_expertise",
+          "q_audience"
+        ]
+      },
+      {
+        "group_id": "g_offer",
+        "label": "The offer",
+        "question_ids": [
+          "q_outcome",
+          "q_delivery"
+        ]
+      },
+      {
+        "group_id": "g_evidence",
+        "label": "Evidence and readiness",
+        "question_ids": [
+          "q_demand",
+          "q_readiness"
+        ]
+      }
+    ],
+    "band_tone": {
+      "ACCELERATE": "affirm",
+      "REFINE": "direct",
+      "CULTIVATE": "develop",
+      "ARCHIVE": "redirect"
+    },
+    "element_order": [
+      "band_label",
+      "next_action",
+      "rationale",
+      "notes",
+      "recourse",
+      "review_notice"
+    ],
+    "progress": "question_count",
+    "operator_view": {
+      "enabled": true,
+      "fields": [
+        "dimension_scores",
+        "weakest_dimension",
+        "thresholds_applied",
+        "maps_version",
+        "spec_hash",
+        "inputs_hash",
+        "review_state"
+      ]
+    },
+    "invitation": {
+      "promise": "Six questions to tell you whether to build now, sharpen first, or wait.",
+      "time_estimate": "About two minutes",
+      "commitment_note": "Nothing is submitted anywhere until you choose the next step."
+    },
+    "continuation": {
+      "cta_label": "See what to do next",
+      "cta_semantic": "book_time"
+    }
+  }
+}

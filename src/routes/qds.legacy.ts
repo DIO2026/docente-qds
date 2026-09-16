@@ -1,9 +1,18 @@
+// VERBATIM COPY of HEAD:src/routes/qds.ts, produced by `git show`, kept only
+// as the A-side of the M1 service-level equivalence harness. Not mounted by
+// the app. Do not edit: regenerate it if the baseline ever needs refreshing.
 import { Router, Request, Response } from 'express'
 import { v4 as uuidv4 } from 'uuid'
 import axios from 'axios'
 import { QDSSubmissionSchema } from '../schemas/qds'
-import { recommendProductShape } from '../engine/routing'
-import { evaluateQDS, legacyDimensionScores, contextNotes } from '../engine/kernel-adapter'
+import { scoreDimensions, computeViabilityScore } from '../engine/scoring'
+import {
+  assignRoutingDecision,
+  assignConfidenceBand,
+  recommendProductShape,
+  generateNextStep,
+  generateNotes,
+} from '../engine/routing'
 
 const router = Router()
 
@@ -28,17 +37,15 @@ router.post('/submit', async (req: Request, res: Response) => {
   const processed_at = new Date().toISOString()
 
   try {
-    // QDS Platform kernel (QDS-CANON-001 v1.1). scoring.ts and routing.ts's
-    // band/advice/notes logic are superseded; recommendProductShape is
-    // product-local and stays (QDS-RULING-002 D-1).
-    const { rec, routing: routing_decision, confidence: confidence_band } = evaluateQDS(payload)
-    const viability_score = rec.internals.raw_score as number
-    const dimensions = legacyDimensionScores(rec.internals.dimension_scores)
+    // Score dimensions
+    const dimensions = scoreDimensions(payload)
+    const viability_score = computeViabilityScore(dimensions)
+    const routing_decision = assignRoutingDecision(viability_score)
+    const confidence_band = assignConfidenceBand(viability_score)
     const recommended_product_shape = recommendProductShape(payload, dimensions)
-    const next_step = rec.next_action
-    const notes = [...rec.notes, ...contextNotes(payload)].slice(0, 5)
+    const next_step = generateNextStep(routing_decision, dimensions)
+    const notes = generateNotes(routing_decision, dimensions, payload)
     const route_reason = `Score: ${viability_score}/100. Weakest dimension drives next step guidance.`
-    const decision_record = rec
 
     // Capture signal to analytics
     try {
@@ -78,15 +85,6 @@ router.post('/submit', async (req: Request, res: Response) => {
         schema_version: 'do_qds_v1.5',
         scoring_model_version: 'do_qds_v1.5',
         response_object_version: 'do_qds_v1.5',
-        qds_platform: {
-          qds_id: decision_record.qds_id,
-          spec_revision: decision_record.qds_version,
-          spec_hash: decision_record.spec_hash,
-          kernel_version: decision_record.kernel_version,
-          record_id: decision_record.record_id,
-          inputs_hash: decision_record.inputs_hash,
-          maps_version: decision_record.internals.maps_version,
-        },
       },
     })
   } catch (error) {
